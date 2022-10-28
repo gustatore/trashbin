@@ -1,0 +1,46 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class jumped {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        for(;;) {
+
+            System.out.print("Inserire a, b e c. Premere CTRL+Z (CTRL+D in Unix) per chiudere il programma: ");
+
+            double a = scanner.nextDouble();
+            double b = scanner.nextDouble();
+            double c = scanner.nextDouble();
+
+            double delta = Math.pow(b, 2) - (4 * a * c);
+
+            if (delta >= 0) {
+                printEq(a, b, c, delta);
+            } else {
+                System.out.println("Delta negativo, uguale a " + delta);
+            }
+
+        }
+    }
+
+        public static void printEq(double a, double b, double c, double delta) {
+            if (Math.sqrt(delta)%1==0) {
+                double x1 = (- b - Math.sqrt(delta))/(2*a);
+                double x2 = (- b + Math.sqrt(delta))/(2*a);
+                System.out.println("x1 = " + x1);
+                System.out.println("x2 = " + x2);
+            } else {
+                    if (delta%Math.pow(2*a,2)==0) {
+                        System.out.println("x1 = " + b / (2 * a) + " - V(" + delta/Math.pow(2*a,2) + ")");
+                        System.out.println("x2 = " + b / (2 * a) + " + V(" + delta/Math.pow(2*a,2) + ")");
+
+                    } else {
+                        System.out.println("x1 = " + b / (2 * a) + " - V(" + delta + ")/" + 2 * a);
+                        System.out.println("x2 = " + b / (2 * a) + " + V(" + delta + ")/" + 2 * a);
+                    }
+            }
+        }
+
+    }
